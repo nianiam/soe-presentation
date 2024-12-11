@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reveal.js Presentation Template for Next.js
 
-## Getting Started
+This repo is a useful starting point for creating a presentation with [Reveal.js](https://revealjs.com/) and Next.js. It's _fairly_ unopinionated about how you build the presentation, however, provides support for tailwind.css out of the box since it sits well with Reveal's design patterns, however, it is not necessary.
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The repo is set up to go immediately:
+
+1. Clone this repo
+2. Install dependencies (e.g. `pnpm install`)
+
+## Usage
+
+See the [Reveal Docs](https://revealjs.com) for the full API. Below is a simple summary to get you started.
+
+### Lazy loading
+
+Reveal.js has a lot of browser-specific features that are not supported on the server. As such, to use the package in next.js, you need to lazy load the reveal.js using `next/dynamic`. With the app router, this means creating an intermediary client component "`<Presentation>`" to load `<RevealSlides>` since the `dynamic` function cannot be run in a server component (e.g. `page.tsx`).
+
+If you were using something without SSR (e.g. Vite), you could use the `<RevealSlides>` component directly.
+
+### Creating slides
+
+Reveal converts all `section` elements into slides. It's as simple as:
+
+```tsx
+<section>
+  <h1>Hello World</h1>
+</section>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Vertical slides
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can create a vertical stack of slides as follows:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```tsx
+<section>
+  <section>
+    <h1>hello world</h1>
+  </section>
+  <section>
+    <h1>Hello World</h1>
+  </section>
+</section>
+```
 
-## Learn More
+### Fragments
 
-To learn more about Next.js, take a look at the following resources:
+Fragments are revealed one at a time _in the order they appear in the document_.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+<section>
+  <h1>hello world</h1>
+  <p className="fragment">I appear first</p>
+  <p className="fragment">I appear second</p>
+  <p className="fragment">I appear third</p>
+</section>
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Slide transitions
 
-## Deploy on Vercel
+Slide transitions are controlled by the `transition` option in the Reveal config _OR_ in the `data-transition` attribute on the slide element. See the [docs](https://revealjs.com/transitions/) for more info.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Slide State
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repo captures the following events from Reveal.js and makes them available to the app via the `useSlides` hook:
+
+- `slidechanged`
+- `fragmentshown`
+- `fragmenthidden`
+- `overviewshown`
+- `overviewhidden`
+
+The return type of `useSlides` is:
+
+```ts
+type SlideState = {
+  x: number;
+  y: number;
+  f: number;
+  overview: boolean;
+  paused: boolean;
+};
+```
+
+This is useful for co-ordinating state around slide and fragment visibility.
+
+> Similarly, the `useTheme` and `useConfig` hooks can be used to update the theme and config respectively.
+
+### A note on styling
+
+Reveal has a lot of opinions on styling. It applies default styles to a lot of different elements (such as `h{1-6}` and `p`) to make the presentation work. To override their styles you have to either:
+
+1. Make sure your css class uses `!important`
+2. Use React's `style` prop
+3. Use Tailwind's `!important` modifier in `tailwind.config.ts` (on by default here)

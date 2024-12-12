@@ -1,6 +1,6 @@
 # Reveal.js Presentation Template for Next.js
 
-This repo is a useful starting point for creating a presentation with [Reveal.js](https://revealjs.com/) and Next.js. It's _fairly_ unopinionated about how you build the presentation, however, provides support for tailwind.css out of the box since it sits well with Reveal's design patterns, however, it is not necessary.
+This repo is a useful starting point for creating a presentation with [Reveal.js](https://revealjs.com/) and Next.js. It's _fairly_ unopinionated about how you build the presentation. The repo provides support for tailwind.css out of the box since it sits well with Reveal's design patterns, however, it is not necessary.
 
 ## Installation
 

@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 
 import { Slide } from "@/components/Reveal/Slide";
+import { useSlideControls } from "@/hooks/useSlideControls";
 import { useSlides } from "@/hooks/useSlides";
 
 export const ExampleSlide = () => {
   const slides = useSlides();
+  const controls = useSlideControls();
   const [showPopup, setShowpopup] = useState(false);
 
   useEffect(() => {
@@ -26,6 +28,9 @@ export const ExampleSlide = () => {
           </div>
         )}
         <h1>Example Slide</h1>
+        <button onClick={() => controls.go({ x: 0, f: 2 })}>
+          Go to fragment 3 on the first slide
+        </button>
         <p className="fragment">Fragment 1</p>
         <p className="fragment">Fragment 2</p>
         <p className="fragment">Fragment 3</p>

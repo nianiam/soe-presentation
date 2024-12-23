@@ -97,6 +97,16 @@ This is useful for co-ordinating state around slide and fragment visibility.
 
 > Similarly, the `useTheme` and `useConfig` hooks can be used to update the theme and config respectively.
 
+### Slide Controls
+
+The `useSlideControls` hook provides a set of functions to allow you you directly control the position of the presentation. These are:
+
+- `next()`
+- `prev()`
+- `first()`
+- `last()`
+- `go({ x, y, f })`
+
 ### A note on styling
 
 Reveal _requires_ importing its CSS (`reveal.js/dist/reveal.css`). This applies styles for page layouts, but also many different elements (such as `h{1-6}` and `p`) to provide sensible defaults to the built-in themes. To override their styles you have to either:

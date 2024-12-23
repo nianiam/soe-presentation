@@ -1,6 +1,6 @@
 # Reveal.js Presentation Template for Next.js
 
-This repo is a useful starting point for creating a presentation with [Reveal.js](https://revealjs.com/) and Next.js. It's _fairly_ unopinionated about how you build the presentation. The repo provides support for tailwind.css out of the box since it sits well with Reveal's design patterns, however, it is not necessary.
+This repo is a useful starting point for creating a presentation with [Reveal.js](https://revealjs.com/) and Next.js. It's _fairly_ unopinionated about how you build the presentation, however, provides support for tailwind.css out of the box since it sits well with Reveal's design patterns, however, it is not necessary.
 
 ## Installation
 
@@ -23,7 +23,7 @@ If you were using something without SSR (e.g. Vite), you could use the `<RevealS
 
 Reveal converts all `section` elements into slides. It's as simple as:
 
-```tsx
+```html
 <section>
   <h1>Hello World</h1>
 </section>
@@ -33,7 +33,7 @@ Reveal converts all `section` elements into slides. It's as simple as:
 
 You can create a vertical stack of slides as follows:
 
-```tsx
+```html
 <section>
   <section>
     <h1>hello world</h1>
@@ -48,12 +48,22 @@ You can create a vertical stack of slides as follows:
 
 Fragments are revealed one at a time _in the order they appear in the document_.
 
-```tsx
+```html
 <section>
   <h1>hello world</h1>
   <p className="fragment">I appear first</p>
   <p className="fragment">I appear second</p>
   <p className="fragment">I appear third</p>
+</section>
+```
+
+You can also use `display: none` to hide a fragment visually but keep it in the slide order. This is useful when you want to orchestrate React state using the same navigation controls as the rest of the presentation (e.g. arrow keys).
+
+```html
+<section>
+  <h1>hello world</h1>
+  <p className="fragment hidden">I exist only in the timeline</p>
+  <p className="fragment">Visually, I appear first</p>
 </section>
 ```
 
@@ -87,10 +97,20 @@ This is useful for co-ordinating state around slide and fragment visibility.
 
 > Similarly, the `useTheme` and `useConfig` hooks can be used to update the theme and config respectively.
 
+### Slide Controls
+
+The `useSlideControls` hook provides a set of functions to allow you you directly control the position of the presentation. These are:
+
+- `next()`
+- `prev()`
+- `first()`
+- `last()`
+- `go({ x, y, f })`
+
 ### A note on styling
 
-Reveal has a lot of opinions on styling. It applies default styles to a lot of different elements (such as `h{1-6}` and `p`) to make the presentation work. To override their styles you have to either:
+Reveal _requires_ importing its CSS (`reveal.js/dist/reveal.css`). This applies styles for page layouts, but also many different elements (such as `h{1-6}` and `p`) to provide sensible defaults to the built-in themes. To override their styles you have to either:
 
-1. Make sure your css class uses `!important`
+1. Use `!important` in your css
 2. Use React's `style` prop
 3. Use Tailwind's `!important` modifier in `tailwind.config.ts` (on by default here)

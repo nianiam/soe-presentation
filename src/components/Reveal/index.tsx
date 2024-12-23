@@ -19,6 +19,7 @@ import { type ExtendedRevealOptions, RevealOptions, type Theme } from "./types";
 
 type SetState<T> = Dispatch<SetStateAction<T>>;
 
+export const RevealContext = createContext<Reveal.Api | null>(null);
 export const SlidesContext = createContext<Reveal.RevealState>(
   defaultConfig.initialState,
 );
@@ -147,13 +148,15 @@ export const RevealSlides = ({
   return (
     <div className="reveal" ref={revealDiv}>
       <div className="slides">
-        <ConfigContext.Provider value={{ config, setConfig }}>
-          <ThemeContext.Provider value={{ theme, setTheme }}>
-            <SlidesContext.Provider value={slideState}>
-              {children}
-            </SlidesContext.Provider>
-          </ThemeContext.Provider>
-        </ConfigContext.Provider>
+        <RevealContext.Provider value={reveal.current}>
+          <ConfigContext.Provider value={{ config, setConfig }}>
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+              <SlidesContext.Provider value={slideState}>
+                {children}
+              </SlidesContext.Provider>
+            </ThemeContext.Provider>
+          </ConfigContext.Provider>
+        </RevealContext.Provider>
       </div>
     </div>
   );

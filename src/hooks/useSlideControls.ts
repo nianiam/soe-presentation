@@ -2,18 +2,10 @@ import { useContext } from "react";
 
 import { RevealContext } from "@/components/Providers/RevealContext";
 
-export interface GoToSlideControl {
-  x: number;
-  y?: number;
-  f?: number;
-}
+type GoToIndex = { x: number; y?: number; f?: number };
 
 export const useSlideControls = () => {
   const reveal = useContext(RevealContext);
-
-  if (!reveal) {
-    console.warn("Reveal instance not found, controls will not work.");
-  }
 
   return {
     next: () => reveal?.next(),
@@ -27,6 +19,6 @@ export const useSlideControls = () => {
      * **greater** than the total number of slides/fragments, it will take you
      * to the last slide/fragment.
      */
-    go: ({ x, y, f }: GoToSlideControl) => reveal?.slide(x, y, f),
+    go: (args: GoToIndex) => reveal?.slide(args.x, args.y, args.f),
   };
 };

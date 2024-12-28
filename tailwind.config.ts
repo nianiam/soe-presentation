@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  // Override reveal styles if necessary
+  // Important to override reveal styles
   important: true,
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

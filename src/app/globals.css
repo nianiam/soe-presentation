@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .fragment.fade-in {
+    opacity: 0;
+  }
+  .fragment.fade-in.visible {
+    opacity: 1;
+  }
+  .fragment.fragment-blur {
+    filter: blur(5px);
+  }
+  .fragment.fragment-blur.visible {
+    filter: none;
+  }
+  .fragement.fragment-bold {
+    font-weight: normal;
+  }
+  .fragment.fragment-bold.visible {
+    font-weight: 800;
+  }
+  .fragment.fragment-underline {
+    text-decoration: none;
+  }
+  .fragment.fragment-underline.visible {
+    text-decoration: underline;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { SlidesContext } from "@/components/Reveal";
+import { SlidesContext } from "@/components/Providers/SlidesContext";
 
 export type SlideState = {
   x: number;

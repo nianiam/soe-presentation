@@ -3,9 +3,6 @@
 import "reveal.js/dist/reveal.css";
 
 import React, {
-  createContext,
-  Dispatch,
-  SetStateAction,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -14,23 +11,12 @@ import React, {
 } from "react";
 import Reveal from "reveal.js";
 
+import { ConfigContext } from "../Providers/ConfigContext";
+import { RevealContext } from "../Providers/RevealContext";
+import { SlidesContext } from "../Providers/SlidesContext";
+import { ThemeContext } from "../Providers/ThemeContext";
 import { defaultConfig } from "./defaultConfig";
-import { type ExtendedRevealOptions, RevealOptions, type Theme } from "./types";
-
-type SetState<T> = Dispatch<SetStateAction<T>>;
-
-export const RevealContext = createContext<Reveal.Api | null>(null);
-export const SlidesContext = createContext<Reveal.RevealState>(
-  defaultConfig.initialState,
-);
-export const ThemeContext = createContext<{
-  theme: Theme;
-  setTheme: SetState<Theme>;
-}>({ theme: "black", setTheme: () => {} });
-export const ConfigContext = createContext<{
-  config: RevealOptions;
-  setConfig: SetState<RevealOptions>;
-}>({ config: {}, setConfig: () => {} });
+import { type ExtendedRevealOptions, RevealOptions } from "./types";
 
 export const RevealSlides = ({
   theme: initialTheme,
@@ -78,10 +64,10 @@ export const RevealSlides = ({
         reveal.current.on("slidechanged", () => {
           updateReactState(reveal.current?.getState());
         });
-        reveal.current.on("fragmentshown", () => {
+        reveal.current.on("fragmentshown", (event) => {
           updateReactState(reveal.current?.getState());
         });
-        reveal.current.on("fragmenthidden", () => {
+        reveal.current.on("fragmenthidden", (event) => {
           updateReactState(reveal.current?.getState());
         });
         reveal.current.on("overviewshown", () => {

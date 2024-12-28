@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { RevealContext } from "@/components/Reveal";
+import { RevealContext } from "@/components/Providers/RevealContext";
 
 export interface GoToSlideControl {
   x: number;

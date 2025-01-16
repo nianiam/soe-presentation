@@ -3,6 +3,7 @@
 import { cn } from "@/utils";
 
 export interface SlideProps extends React.ComponentProps<"section"> {
+  above?: boolean;
   centered?: boolean;
   children: React.ReactNode;
 }
@@ -10,6 +11,7 @@ export interface SlideProps extends React.ComponentProps<"section"> {
 export const Slide = ({
   children,
   className,
+  above,
   centered,
   ...props
 }: SlideProps) => {
@@ -18,6 +20,7 @@ export const Slide = ({
       className={cn(
         "w-full h-full",
         centered && "flex flex-col justify-center items-center",
+        above && "z-10",
         className,
       )}
       {...props}

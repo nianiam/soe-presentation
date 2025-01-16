@@ -1,5 +1,7 @@
 import { PresentationSlides } from "@/components/Presentation";
+import { IsometricSlide } from "@/components/Presentation/Slides/IsometricSlide";
 import { TitleSlide } from "@/components/Presentation/Slides/TitleSlide";
+import { WhySlide } from "@/components/Presentation/Slides/WhySlide";
 
 // We use "disableLayout" and mange the basic centering of the slides in the
 // "Slide.tsx" component. By making the slide 100% width and height position
@@ -10,7 +12,9 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
+        <IsometricSlide />
         <TitleSlide />
+        <WhySlide />
       </PresentationSlides>
     </main>
   );

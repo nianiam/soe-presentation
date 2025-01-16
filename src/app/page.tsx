@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
-        <IsometricSlide />
         <TitleSlide />
         <WhySlide />
+        <IsometricSlide />
       </PresentationSlides>
     </main>
   );

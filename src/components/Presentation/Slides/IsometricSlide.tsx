@@ -4,7 +4,6 @@ import {
   Button,
   Card,
   Container,
-  Dialog,
   Grid,
   octopusTheme,
   Typography,
@@ -54,10 +53,8 @@ export const IsometricSlide = () => {
   const isIsometric = variant.includes("isometric");
   const isScaled = variant.includes("scaled");
 
-  console.log(fragment.name);
-
   useEffect(() => {
-    if (x === 0) {
+    if (x === 2) {
       if (fragment.index === -1) {
         setVariant(["dimensions"]);
       }

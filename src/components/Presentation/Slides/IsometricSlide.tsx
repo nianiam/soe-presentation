@@ -15,10 +15,10 @@ import { Slide } from "@/components/Reveal/Slide";
 import { useSlides } from "@/hooks/useSlides";
 import { cn } from "@/utils";
 
-const isoRotX = 54.736;
-const isoScale = 1.2247;
+export const isoRotX = 54.736;
+export const isoScale = 1.2247;
 
-const widthScale = 1.732;
+export const widthScale = 1.732;
 
 const initialLeft = "50%";
 const initialTop = "50%";
@@ -87,6 +87,8 @@ export const IsometricSlide = () => {
 
   const isometricCoordinate = useCallback(
     (x: number, y: number) => {
+      // Requires the reference because we're starting in the center of the
+      // screen
       const xOffset = reference?.x
         ? `calc(${reference.x} + ${((x - y) * grid * widthScale) / 2}px)`
         : ((x - y) * grid * widthScale) / 2;

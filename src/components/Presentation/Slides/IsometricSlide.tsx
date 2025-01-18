@@ -54,7 +54,7 @@ export const IsometricSlide = () => {
   const isScaled = variant.includes("scaled");
 
   useEffect(() => {
-    if (x === 2) {
+    if (x === 4) {
       if (fragment.index === -1) {
         setVariant(["dimensions"]);
       }
@@ -110,7 +110,7 @@ export const IsometricSlide = () => {
     >
       <h1 className="m-0 z-20">3D and Perspective</h1>
       <div className="w-full h-full relative">
-        {fragment.index < 12 && (
+        {x === 4 && fragment.index < 12 && (
           <>
             <motion.div
               initial={"dimensions"}
@@ -573,7 +573,7 @@ export const IsometricSlide = () => {
               >
                 <Container width={grid * 2} height={grid * 2} margin="auto">
                   <Card padding="none">
-                    <Card.Header>Dialogue Header</Card.Header>
+                    <Card.Header>Dialog Header</Card.Header>
                     <Card.Image src="/dwight.gif" height={grid} />
                     <Card.Body padding="small">
                       <Button>Close me</Button>

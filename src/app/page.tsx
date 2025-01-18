@@ -1,6 +1,7 @@
 import { PresentationSlides } from "@/components/Presentation";
 import { DesignPatternsSlide } from "@/components/Presentation/Slides/DesignPatternsSlide";
 import { FeatureIsolationSlide } from "@/components/Presentation/Slides/FeatureIsolation";
+import { HowToReveal } from "@/components/Presentation/Slides/HowToReveal";
 import { IsometricSlide } from "@/components/Presentation/Slides/IsometricSlide";
 import { TitleSlide } from "@/components/Presentation/Slides/TitleSlide";
 import { WhySlide } from "@/components/Presentation/Slides/WhySlide";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
+        <HowToReveal />
         <FeatureIsolationSlide />
         <DesignPatternsSlide />
         <TitleSlide />

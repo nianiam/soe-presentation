@@ -28,6 +28,7 @@ export const HowToReveal = () => {
             <ol>
               <li className="fragment">useSlides hook for slide state</li>
               <li className="fragment">Fragment naming</li>
+              <li className="fragment">Tailwind Support</li>
             </ol>
           </Fragment>
           <Fragment className="mt-32">

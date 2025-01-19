@@ -110,6 +110,12 @@ export const IsometricSlide = () => {
     >
       <h1 className="m-0 z-20">Isometric Coordinates</h1>
       <div className="w-full h-full relative">
+        {x === 6 &&
+          (fragment.name === "isometric" || fragment.name === "scaled") && (
+            <div className="absolute top-80 left-1/2 -translate-x-1/2 text-3xl">
+              {`transform: rotateX(54.736deg) rotateZ(45deg) ${fragment.name === "scaled" ? "scale(1.2247)" : ""}`}
+            </div>
+          )}
         {x === 6 && fragment.index < 12 && (
           <>
             <motion.div

@@ -196,7 +196,7 @@ export const FeatureIsolationSlide = () => {
   const { fragment, x } = useSlides();
   const defaultName = "component1";
   const fragmentName = fragment.name ? fragment.name : defaultName;
-  console.log(x);
+  console.log(fragment);
 
   return (
     <Slide above data-transition="fade" className="p-20">
@@ -213,10 +213,19 @@ export const FeatureIsolationSlide = () => {
               height: "calc(100%-2rem)",
             }}
             codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
+            lineProps={(n) => {
+              if (fragment.index === 2 && n === 9) {
+                return {
+                  className:
+                    "bg-yellow-300 text-gray-600 [&>span]:text-gray-600",
+                };
+              }
+
+              return {};
+            }}
           >
             {text[fragmentName]}
           </CodeBlock>
-          <Fragment hidden name="component2" />
           <Fragment hidden name="component2" />
           <Fragment hidden name="component3" />
           <Fragment hidden name="component3" />
@@ -256,7 +265,7 @@ export const FeatureIsolationSlide = () => {
                   (n >= 5 && n <= 6) || n === 14 || n === 15;
                 if (
                   isRippedOutLine &&
-                  fragment.index === 6 &&
+                  fragment.index === 5 &&
                   fragment.isShowing
                 ) {
                   return {
@@ -267,7 +276,7 @@ export const FeatureIsolationSlide = () => {
                 const isDoesntWantsToCountLine = n === 9;
                 if (
                   isDoesntWantsToCountLine &&
-                  fragment.index === 7 &&
+                  fragment.index === 6 &&
                   fragment.isShowing
                 ) {
                   return {
@@ -279,7 +288,7 @@ export const FeatureIsolationSlide = () => {
                 const isExampleComponent = n === 6 || n === 15;
                 if (
                   isExampleComponent &&
-                  fragment.index === 8 &&
+                  fragment.index === 7 &&
                   fragment.isShowing
                 ) {
                   return {
@@ -294,7 +303,7 @@ export const FeatureIsolationSlide = () => {
             >
               {consumer[fragmentName]}
             </CodeBlock>
-            {x == 7 && fragment.index === 3 && (
+            {x === 9 && fragment.index === 2 && (
               <CodeBlock
                 language="tsx"
                 style={oneDark}

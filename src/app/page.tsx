@@ -18,11 +18,11 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
-        <TransformationsSlide />
         <TitleSlide />
         <WhySlide />
         <HowToReveal />
         <HowToUse />
+        <TransformationsSlide />
         <IsometricSlide />
         <DesignPatternsSlide />
         <ComponentPropsSlide />

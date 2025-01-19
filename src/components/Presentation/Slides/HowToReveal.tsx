@@ -11,7 +11,7 @@ export const HowToReveal = () => {
             <h2 className="text-yellow-300">Reveal.js</h2>
             <img src="/reveal.png" className="w-80 h-80 mx-auto" />
             <p>https://revealjs.com/</p>
-            <ol className="mt-20">
+            <ol className="mt-20 text-6xl [&>li]:py-2">
               <li className="fragment">Orchestrate slides</li>
               <li className="fragment">Orchestrate timeline</li>
               <li className="fragment">Animate slide transitions</li>
@@ -21,11 +21,13 @@ export const HowToReveal = () => {
         </div>
         <div className="p-10">
           <Fragment>
-            <h2 className="text-yellow-300">Next.js compatible template</h2>
-            <p className="text-blue-400">
+            <h2 className="text-yellow-300 text-7xl">
+              Next.js compatible template
+            </h2>
+            <p className="text-blue-400 text-5xl">
               https://github.com/nianiam/reveal-next-template
             </p>
-            <ol>
+            <ol className="text-6xl [&>li]:py-2">
               <li className="fragment">Next.js 15 with App Router</li>
               <li className="fragment">Integrate Reveal API into react</li>
               <li className="fragment">useSlides hook for slide state</li>
@@ -33,12 +35,12 @@ export const HowToReveal = () => {
               <li className="fragment">Tailwind Support</li>
             </ol>
           </Fragment>
-          <Fragment className="mt-32">
-            <h2 className="text-yellow-300">This presentation!</h2>
-            <p className="text-blue-400">
+          <Fragment className="mt-20">
+            <h2 className="text-yellow-300 text-7xl">This presentation!</h2>
+            <p className="text-blue-400 text-5xl">
               https://github.com/nianiam/soe-presentaion
             </p>
-            <ol>
+            <ol className="text-6xl [&>li]:py-2">
               <li>react-syntax-highlighter</li>
               <li>motion animations (framer-motion)</li>
             </ol>

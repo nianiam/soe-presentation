@@ -12,10 +12,10 @@ export const HowToReveal = () => {
             <img src="/reveal.png" className="w-80 h-80 mx-auto" />
             <p>https://revealjs.com/</p>
             <ol className="mt-20 text-6xl [&>li]:py-2">
-              <li className="fragment">Orchestrate slides</li>
-              <li className="fragment">Orchestrate timeline</li>
-              <li className="fragment">Animate slide transitions</li>
-              <li className="fragment">Apply themes</li>
+              <li>Navigate slides</li>
+              <li>Orchestrate timeline</li>
+              <li>Animate slide transitions</li>
+              <li>Apply themes</li>
             </ol>
           </Fragment>
         </div>
@@ -30,7 +30,12 @@ export const HowToReveal = () => {
             <ol className="text-6xl [&>li]:py-2">
               <li className="fragment">Next.js 15 with App Router</li>
               <li className="fragment">Integrate Reveal API into react</li>
-              <li className="fragment">useSlides hook for slide state</li>
+              <li className="fragment">
+                <pre className="inline text-orange-600 bg-gray-800 p-2 rounded-lg">
+                  useSlides
+                </pre>{" "}
+                hook for slide state
+              </li>
               <li className="fragment">Fragment naming</li>
               <li className="fragment">Tailwind Support</li>
             </ol>

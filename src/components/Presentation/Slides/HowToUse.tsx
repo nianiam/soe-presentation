@@ -13,7 +13,7 @@ const fragments = [
          I'm a fragment and have a name
       </li>`,
   `      <li className="fragment" data-fragment-name="janky-backwards">
-         Janking backwards behaviour
+         Janky backwards behaviour
       </li>`,
 ];
 
@@ -185,14 +185,14 @@ export const HowToUse = () => {
                 have a name
               </li>
               <li className="fragment" data-fragment-name="janky-backwards">
-                Janking backwards behaviour
+                Janky backwards behaviour
                 <ul>
                   <li className="py-4 text-4xl">
-                    "Fragment hidden" event triggers on old element instead of
-                    new
-                  </li>
-                  <li className="py-4 text-4xl">
-                    Use isShowing to check if you're going backwards or forwards
+                    Use{" "}
+                    <pre className="inline text-orange-600 bg-gray-800 p-2 rounded-lg">
+                      isShowing
+                    </pre>{" "}
+                    to check if you're going backwards or forwards
                   </li>
                 </ul>
               </li>

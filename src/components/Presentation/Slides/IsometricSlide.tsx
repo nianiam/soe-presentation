@@ -54,7 +54,7 @@ export const IsometricSlide = () => {
   const isScaled = variant.includes("scaled");
 
   useEffect(() => {
-    if (x === 4) {
+    if (x === 6) {
       if (fragment.index === -1) {
         setVariant(["dimensions"]);
       }
@@ -110,7 +110,7 @@ export const IsometricSlide = () => {
     >
       <h1 className="m-0 z-20">Isometric Coordinates</h1>
       <div className="w-full h-full relative">
-        {x === 4 && fragment.index < 12 && (
+        {x === 6 && fragment.index < 12 && (
           <>
             <motion.div
               initial={"dimensions"}

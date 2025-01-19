@@ -73,6 +73,7 @@ export const IsometricIntroSlide = () => {
           <li>Depth easily shown using height</li>
         </ol>
       </Fragment>
+      <p className="fragment text-red-500">Predictable!</p>
     </Slide>
   );
 };

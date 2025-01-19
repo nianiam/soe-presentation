@@ -28,7 +28,7 @@ export const HowToUse = () => {
   return (
     <Slide above data-transition="fade">
       {y >= 1 && (
-        <div className="absolute top-10 left-10 text-5xl border border-green-300 rounded-lg w-[300px] text-center">
+        <div className="absolute top-10 left-10 text-4xl border border-green-300 rounded-lg w-[200px] text-center z-50">
           <div className="px-10 py-5 border-b border-green-300 bg-green-600/10">
             Slide State
           </div>
@@ -125,11 +125,12 @@ export const HowToUse = () => {
       </Slide>
       <Slide data-transition="slide" className="p-20">
         <h1>Slide State</h1>
-        <div className="w-1/2 mx-auto">
+        <div className="w-[80%] mx-auto flex gap-10">
           <CodeBlock
             language="tsx"
             customStyle={{
-              height: "calc(100%-2rem)",
+              fontSize: "1.5rem",
+              height: "100%",
             }}
             codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
             lineProps={(n) => {
@@ -172,28 +173,31 @@ export const HowToUse = () => {
   </section>
 </section>`}
           </CodeBlock>
-          <p className="fragment py-10">Hi i'm a paragraph fragment</p>
-          <ol className="fragment">
-            <li>
-              I'm <span className="font-bold underline">not</span> a fragment!
-              (but my parent is)
-            </li>
-            <li className="fragment" data-fragment-name="name-example">
-              I'm a fragment <span className="font-bold underline">and</span>{" "}
-              have a name
-            </li>
-            <li className="fragment" data-fragment-name="janky-backwards">
-              Janking backwards behaviour
-              <ul>
-                <li className="text-5xl py-4">
-                  "Fragment hidden" event triggers on old element instead of new
-                </li>
-                <li className="text-5xl py-4">
-                  Use isShowing to check if you're going backwards or forwards
-                </li>
-              </ul>
-            </li>
-          </ol>
+          <div className="text-5xl">
+            <p className="fragment py-10">Hi i'm a paragraph fragment</p>
+            <ol className="fragment [&>li]:py-4">
+              <li>
+                I'm <span className="font-bold underline">not</span> a fragment!
+                (but my parent is)
+              </li>
+              <li className="fragment" data-fragment-name="name-example">
+                I'm a fragment <span className="font-bold underline">and</span>{" "}
+                have a name
+              </li>
+              <li className="fragment" data-fragment-name="janky-backwards">
+                Janking backwards behaviour
+                <ul>
+                  <li className="py-4 text-4xl">
+                    "Fragment hidden" event triggers on old element instead of
+                    new
+                  </li>
+                  <li className="py-4 text-4xl">
+                    Use isShowing to check if you're going backwards or forwards
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
       </Slide>
       <Slide data-transition="slide" className="p-20">

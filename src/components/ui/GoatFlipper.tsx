@@ -34,6 +34,7 @@ export const GoatFlipper = ({
               height: grid,
               opacity: 1,
               rotateX: 180,
+              rotateZ: 180,
               transition: {
                 duration: 0.75,
                 type: "spring",
@@ -43,6 +44,7 @@ export const GoatFlipper = ({
             exit={{
               opacity: 0,
               rotateX: 0,
+              rotateZ: 180,
             }}
           >
             <img

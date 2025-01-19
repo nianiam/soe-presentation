@@ -42,7 +42,7 @@ export const TitleSlide = () => {
   }, []);
 
   return (
-    <Slide centered above className="relative">
+    <Slide centered above>
       <h1 className="z-50 drop-shadow-sm">
         Presentations in React<span className="text-red-500">*</span>
       </h1>

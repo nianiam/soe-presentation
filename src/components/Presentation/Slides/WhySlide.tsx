@@ -32,7 +32,6 @@ export const WhySlide = () => {
         <div className="mt-6 text-yellow-300">
           Design decisions in SNAP made it easy to extract individual pieces
         </div>
-
         {x === 1 && fragment.index >= 2 && fragment.isShowing && (
           <motion.div className="relative w-full mt-16 h-[250px]">
             {Array(29)
@@ -101,7 +100,7 @@ export const WhySlide = () => {
               })}
           </motion.div>
         )}
-        <div className="fragment hidden" />
+        {/* <div className="fragment hidden" /> */}
         <Fragment hidden name="map" />
         <Fragment hidden name="mocks" />
         <Fragment hidden name="3d" />

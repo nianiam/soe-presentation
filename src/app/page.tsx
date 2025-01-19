@@ -6,6 +6,7 @@ import { HowToReveal } from "@/components/Presentation/Slides/HowToReveal";
 import { HowToUse } from "@/components/Presentation/Slides/HowToUse";
 import { IsometricSlide } from "@/components/Presentation/Slides/IsometricSlide";
 import { TitleSlide } from "@/components/Presentation/Slides/TitleSlide";
+import { TransformationsSlide } from "@/components/Presentation/Slides/TransformationsSlide";
 import { WhySlide } from "@/components/Presentation/Slides/WhySlide";
 
 // We use "disableLayout" and mange the basic centering of the slides in the
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
+        <TransformationsSlide />
         <TitleSlide />
         <WhySlide />
         <HowToReveal />

@@ -26,6 +26,7 @@ export const HowToReveal = () => {
               https://github.com/nianiam/reveal-next-template
             </p>
             <ol>
+              <li className="fragment">Next.js 15 with App Router</li>
               <li className="fragment">Integrate Reveal API into react</li>
               <li className="fragment">useSlides hook for slide state</li>
               <li className="fragment">Fragment naming</li>

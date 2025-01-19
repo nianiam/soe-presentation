@@ -12,7 +12,7 @@ export const ComponentPropsSlide = () => {
   return (
     <Slide above data-transition="fade" className="p-20">
       <h1>Feature Isolation</h1>
-      <div className="grid grid-cols-2 grid-rows-2 gap-20 h-full max-w-3/4">
+      <div className="grid grid-cols-2 gap-10 h-full">
         <div className="p-10">
           <h2 className="text-yellow-300">Component Model</h2>
           <CodeBlock
@@ -63,8 +63,8 @@ export const ComponentPropsSlide = () => {
   )
 }`}
           </CodeBlock>
-          <div className="text-left p-10 fragment">
-            <ol className="[&>li]:py-4">
+          <div className="text-left p-10 fragment text-5xl">
+            <ol className="[&>li]:py-2">
               <li>Fundamental principle of react</li>
               <li>Business logic can be used to inform UI state</li>
               <li>
@@ -76,16 +76,16 @@ export const ComponentPropsSlide = () => {
         </div>
         <div className="p-10 text-left fragment">
           <h2 className="text-yellow-300">Fundamental, But...</h2>
-          <ol className="[&>li]:py-4 px-10">
+          <ol className="[&>li]:py-4 px-10 max-w-[700px] text-5xl">
             <li className="fragment">
               Easy to{" "}
               <span className="italic text-red-500">
-                <span className="font-bold underline">unwittingly</span> link
-                business logic with UI state
-              </span>{" "}
-              when you might not have intended to
+                <span className="font-bold underline">unintentionally</span>{" "}
+                link business logic with UI state
+              </span>
               <ul className="py-6 [&>li]:py-2 text-5xl">
                 <li>state1 and state2 "come with" this flex box</li>
+                <li>Arguably separate</li>
                 <li>
                   Can be sometimes be tricky to de-couple the two as complexity
                   grows
@@ -93,34 +93,12 @@ export const ComponentPropsSlide = () => {
               </ul>
             </li>
             <li className="fragment">
-              Locks in a component hierarchy as children must be defined inside
-              the parent <span className="bold underline">file</span> to use the
-              state
+              Locks in a component hierarchy
               <ul className="py-6 [&>li]:py-2 text-5xl">
                 <li>
-                  Can be harder discern the order of components when you have to
-                  traverse multiple files
-                </li>
-                <li>
-                  <CodeBlock
-                    language="tsx"
-                    style={oneDark}
-                    showLineNumbers
-                    customStyle={{
-                      height: "calc(100%-2rem)",
-                    }}
-                    codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
-                  >
-                    {`const ParentOfMyAwesomeComponent = () => {
-  // Business logic
-
-  return (
-    <div>
-      <MyAwesomeComponent /> <-- Can't see child order at this level
-    </div>
-  )
-}`}
-                  </CodeBlock>
+                  Children must be defined inside the{" "}
+                  <span className="bold underline">file</span> of the parent to
+                  consume that state
                 </li>
               </ul>
             </li>

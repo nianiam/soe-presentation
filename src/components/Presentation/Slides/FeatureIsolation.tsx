@@ -147,13 +147,13 @@ export const Consumer = () => {
   return (
     <Application>
       <Example>
-        <Feature1> // <-- Can have feature 1 specific context
+        <Feature2> <-- Feature 2 above feature 1 now
+          <AlsoWantsToCount />
+        </Feature2>
+        <Feature1>
           <WantsToCount />
           Hello World
         </Feature1>
-        <Feature2>
-          <AlsoWantsToCount /> // <-- Yay, can count!
-        </Feature2>
       </Example>
     </Application>
   )
@@ -164,14 +164,14 @@ export const Consumer = () => {
   return (
     <Application>
       <Example>
-        <Feature1>
-          <WantsToCount />
-          Hello World
-        </Feature1>
         <Feature2>
           <AlsoWantsToCount />
           <DoesntWantsToCount /> // <-- Renders on count...
         </Feature2>
+        <Feature1>
+          <WantsToCount />
+          Hello World
+        </Feature1>
       </Example>
     </Application>
   )
@@ -196,18 +196,20 @@ export const FeatureIsolationSlide = () => {
   const { fragment, x } = useSlides();
   const defaultName = "component1";
   const fragmentName = fragment.name ? fragment.name : defaultName;
+  console.log(x);
 
   return (
     <Slide above data-transition="fade" className="p-20">
       <h1>Feature Isolation</h1>
       <div className="grid grid-cols-2 grid-rows-2 gap-20 h-full">
         <div className="p-10">
-          <h2 className="text-yellow-300">Component Composition</h2>
+          <h2 className="text-yellow-300">Composition</h2>
           <CodeBlock
             language="tsx"
             style={oneDark}
             showLineNumbers
             customStyle={{
+              fontSize: "1.5rem",
               height: "calc(100%-2rem)",
             }}
             codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
@@ -229,6 +231,7 @@ export const FeatureIsolationSlide = () => {
               style={oneDark}
               showLineNumbers
               customStyle={{
+                fontSize: "1.5rem",
                 height: "calc(100%-2rem)",
               }}
               codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
@@ -249,7 +252,8 @@ export const FeatureIsolationSlide = () => {
                   };
                 }
 
-                const isRippedOutLine = n >= 11 && n <= 13;
+                const isRippedOutLine =
+                  (n >= 5 && n <= 6) || n === 14 || n === 15;
                 if (
                   isRippedOutLine &&
                   fragment.index === 6 &&
@@ -260,7 +264,7 @@ export const FeatureIsolationSlide = () => {
                   };
                 }
 
-                const isDoesntWantsToCountLine = n === 13;
+                const isDoesntWantsToCountLine = n === 9;
                 if (
                   isDoesntWantsToCountLine &&
                   fragment.index === 7 &&
@@ -290,12 +294,13 @@ export const FeatureIsolationSlide = () => {
             >
               {consumer[fragmentName]}
             </CodeBlock>
-            {x == 0 && fragment.index === 3 && (
+            {x == 7 && fragment.index === 3 && (
               <CodeBlock
                 language="tsx"
                 style={oneDark}
                 showLineNumbers
                 customStyle={{
+                  fontSize: "1.5rem",
                   height: "calc(100%-2rem)",
                 }}
                 codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
@@ -316,7 +321,7 @@ export const FeatureIsolationSlide = () => {
               </CodeBlock>
             )}
             <Fragment name="component6" />
-            <Fragment name="component7" className="text-left">
+            <Fragment name="component7" className="text-left text-5xl">
               <p>Footguns with React context:</p>
               <ol>
                 <li>Renders whole tree below the context provider</li>
@@ -329,7 +334,6 @@ export const FeatureIsolationSlide = () => {
                 data-fragment-name="component7"
               >
                 At this point, consider global state management!
-                <span className="block">(Jotai, Zustand etc...)</span>
               </p>
             </Fragment>
           </div>

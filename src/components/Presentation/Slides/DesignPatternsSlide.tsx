@@ -13,13 +13,14 @@ export const DesignPatternsSlide = () => {
     <Slide above data-transition="fade" className="p-20">
       <h1>SNAP! Design Patterns</h1>
       <div className="grid grid-cols-2 gap-20 h-full">
-        <div className="p-10">
+        <div className="px-10">
           <h2 className="text-yellow-300">Feature Isolation</h2>
           <CodeBlock
             customStyle={{
-              height: "calc(100%-2rem)",
+              fontSize: "1.5rem",
+              height: "calc(100%-3rem)",
             }}
-            codeTagProps={{ className: "max-h-[calc(100%-2rem)]" }}
+            codeTagProps={{ className: "max-h-[calc(100%-3rem)]" }}
             lineProps={(n) => {
               if (
                 fragment.name === "map" &&
@@ -97,10 +98,10 @@ export const DesignPatternsSlide = () => {
           <div>
             <img src="/spawns.png" className="rounded-xl object-cover" />
           </div>
-          <p>
-            Testing the UI and mutations without a BE{" "}
-            <span className="text-4xl text-red-600">(that wasn't prod)</span>
-          </p>
+          <div>
+            Testing UI and mutations without a BE
+            <div className="text-4xl text-red-600">(that wasn't prod)</div>
+          </div>
         </div>
       </div>
     </Slide>

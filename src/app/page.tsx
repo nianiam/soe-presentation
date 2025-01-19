@@ -4,6 +4,7 @@ import { DesignPatternsSlide } from "@/components/Presentation/Slides/DesignPatt
 import { FeatureIsolationSlide } from "@/components/Presentation/Slides/FeatureIsolation";
 import { HowToReveal } from "@/components/Presentation/Slides/HowToReveal";
 import { HowToUse } from "@/components/Presentation/Slides/HowToUse";
+import { IsometricIntroSlide } from "@/components/Presentation/Slides/IsometricIntroSlide";
 import { IsometricSlide } from "@/components/Presentation/Slides/IsometricSlide";
 import { TitleSlide } from "@/components/Presentation/Slides/TitleSlide";
 import { TransformationsSlide } from "@/components/Presentation/Slides/TransformationsSlide";
@@ -23,6 +24,7 @@ export default function Home() {
         <HowToReveal />
         <HowToUse />
         <TransformationsSlide />
+        <IsometricIntroSlide />
         <IsometricSlide />
         <DesignPatternsSlide />
         <ComponentPropsSlide />

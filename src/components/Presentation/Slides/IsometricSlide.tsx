@@ -108,7 +108,7 @@ export const IsometricSlide = () => {
       data-transition="fade"
       className="grid grid-rows-[150px_1fr] place-content-center place-items-center"
     >
-      <h1 className="m-0 z-20">3D and Perspective</h1>
+      <h1 className="m-0 z-20">Isometric Coordinates</h1>
       <div className="w-full h-full relative">
         {x === 4 && fragment.index < 12 && (
           <>

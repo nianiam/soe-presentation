@@ -13,7 +13,7 @@ export const DesignPatternsSlide = () => {
     <Slide above data-transition="fade" className="p-20">
       <h1>SNAP! Design Patterns</h1>
       <div className="grid grid-cols-2 gap-20 h-full">
-        <div className="px-10">
+        <div className="px-10 fragment">
           <h2 className="text-yellow-300">Feature Isolation</h2>
           <CodeBlock
             customStyle={{
@@ -23,29 +23,12 @@ export const DesignPatternsSlide = () => {
             codeTagProps={{ className: "max-h-[calc(100%-3rem)]" }}
             lineProps={(n) => {
               if (
-                fragment.name === "map" &&
-                fragment.isShowing &&
-                (n <= 1 || n >= 7)
-              ) {
-                return {
-                  className: "text-gray-700 [&>span]:text-gray-700",
-                };
-              }
-
-              if (
-                fragment.name === "gallery" &&
-                fragment.isShowing &&
-                (n <= 7 || n >= 14)
-              ) {
-                return {
-                  className: "text-gray-700 [&>span]:text-gray-700",
-                };
-              }
-
-              if (
-                fragment.name === "collection" &&
-                fragment.isShowing &&
-                (n <= 25 || n >= 28)
+                fragment.index > 0 &&
+                (n === 1 ||
+                  n === 7 ||
+                  (n >= 14 && n <= 25) ||
+                  n === 28 ||
+                  n === 29)
               ) {
                 return {
                   className: "text-gray-700 [&>span]:text-gray-700",
@@ -90,11 +73,11 @@ export const DesignPatternsSlide = () => {
 </Centered>`}
           </CodeBlock>
           <div className="fragment hidden" data-fragment-name={"map"} />
-          <div className="fragment hidden" data-fragment-name={"gallery"} />
-          <div className="fragment hidden" data-fragment-name={"collection"} />
         </div>
         <div className="p-10 relative fragment">
-          <h2 className="text-yellow-300">Linking msw and React</h2>
+          <h2 className="text-yellow-300 text-[6rem]">
+            Building a back-end on the frontend
+          </h2>
           <div>
             <img src="/spawns.png" className="rounded-xl object-cover" />
           </div>

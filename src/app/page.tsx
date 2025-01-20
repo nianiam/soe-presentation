@@ -3,6 +3,7 @@ import { BackendFrontendSlide } from "@/components/Presentation/Slides/BackendFr
 import { ComponentPropsSlide } from "@/components/Presentation/Slides/ComponentPropsSlide";
 import { DesignPatternsSlide } from "@/components/Presentation/Slides/DesignPatternsSlide";
 import { FeatureIsolationSlide } from "@/components/Presentation/Slides/FeatureIsolation";
+import { HandlersAndReactSlide } from "@/components/Presentation/Slides/HandlersAndReactSlide";
 import { HowToReveal } from "@/components/Presentation/Slides/HowToReveal";
 import { HowToUse } from "@/components/Presentation/Slides/HowToUse";
 import { IsometricIntroSlide } from "@/components/Presentation/Slides/IsometricIntroSlide";
@@ -21,7 +22,6 @@ export default function Home() {
   return (
     <main className="w-screen h-screen">
       <PresentationSlides disableLayout margin={0}>
-        <MSWSlide />
         <TitleSlide />
         <WhySlide />
         <HowToReveal />
@@ -33,6 +33,8 @@ export default function Home() {
         <ComponentPropsSlide />
         <FeatureIsolationSlide />
         <BackendFrontendSlide />
+        <MSWSlide />
+        <HandlersAndReactSlide />
       </PresentationSlides>
     </main>
   );

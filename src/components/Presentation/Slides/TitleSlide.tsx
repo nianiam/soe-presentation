@@ -10,6 +10,7 @@ import { isometricCoordinate } from "@/utils";
 import { isoRotX, isoScale } from "./IsometricSlide";
 
 const grid = 200;
+const GOATS = 10;
 
 function generateCombinations(num1: number, num2: number, N: number) {
   if (num1 < 0 || num1 > 9 || num2 < 0 || num2 > 9) {
@@ -31,11 +32,11 @@ function generateCombinations(num1: number, num2: number, N: number) {
 }
 
 export const TitleSlide = () => {
-  const [cells, setCells] = useState(generateCombinations(2, 6, 7));
+  const [cells, setCells] = useState(generateCombinations(2, 6, GOATS));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCells(generateCombinations(2, 6, 7));
+      setCells(generateCombinations(2, 6, GOATS));
     }, 5000);
 
     return () => clearInterval(interval);

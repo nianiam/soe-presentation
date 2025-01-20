@@ -81,10 +81,7 @@ export const DesignPatternsSlide = () => {
           <div>
             <img src="/spawns.png" className="rounded-xl object-cover" />
           </div>
-          <div>
-            Testing UI and mutations without a BE
-            <div className="text-4xl text-red-600">(that wasn't prod)</div>
-          </div>
+          <div>Testing UI and mutations at the speed we needed to</div>
         </div>
       </div>
     </Slide>

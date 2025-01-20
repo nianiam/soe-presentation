@@ -81,6 +81,20 @@ export const HandlersAndReactSlide = () => {
                 <div className="absolute bottom-[97%] left-0.5 text-yellow-300 rounded-2xl text-center text-6xl px-4">
                   <pre>React App</pre>
                 </div>
+                {fragment.index >= 1 && fragment.isShowing && (
+                  <>
+                    <div className="absolute left-0 top-0">
+                      <pre className="text-yellow-300">
+                        {"<GlobalStateProvider store={globalState}>"}
+                      </pre>
+                    </div>
+                    <div className="absolute left-0 bottom-0">
+                      <pre className="text-yellow-300">
+                        {"</GlobalStateProvider>"}
+                      </pre>
+                    </div>
+                  </>
+                )}
                 {fragment.index >= 0 && fragment.isShowing && (
                   <div className="absolute left-[72.5%] w-0 h-0 bottom-[102%] border-l-[15px] border-l-transparent border-t-[20px] border-t-orange-600 border-r-[15px] border-r-transparent "></div>
                 )}

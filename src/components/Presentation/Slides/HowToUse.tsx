@@ -28,7 +28,7 @@ export const HowToUse = () => {
   return (
     <Slide above data-transition="fade">
       {y >= 1 && (
-        <div className="absolute top-10 left-10 text-4xl border border-green-300 rounded-lg w-[200px] text-center z-50">
+        <div className="absolute top-6 left-6 text-4xl border border-green-300 rounded-lg w-[200px] text-center z-50">
           <div className="px-10 py-5 border-b border-green-300 bg-green-600/10">
             Slide State
           </div>
@@ -125,6 +125,11 @@ export const HowToUse = () => {
       </Slide>
       <Slide data-transition="slide" className="p-20">
         <h1>Slide State</h1>
+        <div className="w-[480px] mx-auto">
+          <pre className="text-center text-yellow-300 w-auto p-2 bg-blue-950 rounded-xl">
+            {"{ x, y, fragment } = useSlides()"}
+          </pre>
+        </div>
         <div className="w-[80%] mx-auto flex gap-10">
           <CodeBlock
             language="tsx"

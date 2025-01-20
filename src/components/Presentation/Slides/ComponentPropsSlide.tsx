@@ -81,7 +81,7 @@ export const ComponentPropsSlide = () => {
               Easy to{" "}
               <span className="italic text-red-500">
                 <span className="font-bold underline">unintentionally</span>{" "}
-                link business logic with UI state
+                link business logic with unrelated UI state
               </span>
               <ul className="py-6 [&>li]:py-2 text-5xl">
                 <li>state1 and state2 "come with" this flex box</li>

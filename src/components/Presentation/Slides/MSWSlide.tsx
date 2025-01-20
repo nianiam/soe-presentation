@@ -24,21 +24,30 @@ export const MSWSlide = () => {
           <ul className="[&>li]:text-6xl [&>li]:py-2">
             <li>Intercepts HTTP requests and returns custom responses</li>
             <li>Very commonly used during testing</li>
+            <li className="fragment">
+              <span className="italic font-bold text-yellow-300">Can</span> be
+              used on the client
+            </li>
+
+            <div className="fragment">
+              <blockquote className="w-full text-5xl rounded-lg p-8">
+                "mock APIs in testing, to{" "}
+                <span
+                  className={cn(fragment.index >= 2 ? "text-green-500" : "")}
+                >
+                  debug network while developing
+                </span>
+                ,{" "}
+                <span className={cn(fragment.index >= 3 ? "text-red-500" : "")}>
+                  to present their work across teams
+                </span>
+                , to monitor the outgoing traffic, etc."
+              </blockquote>
+              <p className="text-2xl text-right text-blue-500">
+                https://mswjs.io/docs/getting-started
+              </p>
+            </div>
           </ul>
-          <blockquote className="w-full text-5xl rounded-lg p-8">
-            "mock APIs in testing, to{" "}
-            <span className={cn(fragment.index >= 0 ? "text-green-500" : "")}>
-              debug network while developing
-            </span>
-            ,{" "}
-            <span className={cn(fragment.index >= 1 ? "text-red-500" : "")}>
-              to present their work across teams
-            </span>
-            , to monitor the outgoing traffic, etc."
-          </blockquote>
-          <p className="text-2xl text-right text-blue-500">
-            https://mswjs.io/docs/getting-started
-          </p>
           <Fragment hidden name="quote-highlight" />
           <Fragment hidden name="quote-highlight" />
         </div>

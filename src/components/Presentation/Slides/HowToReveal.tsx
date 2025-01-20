@@ -14,8 +14,14 @@ export const HowToReveal = () => {
             <ol className="mt-20 text-6xl [&>li]:py-2">
               <li>Navigate slides</li>
               <li>Orchestrate timeline</li>
-              <li>Animate slide transitions</li>
-              <li>Apply themes</li>
+              <li>Handle transition animations</li>
+              <li>Apply themes / styling</li>
+              <li className="text-red-500 fragment">
+                Client-side only package
+              </li>
+              <li className="text-red-500 fragment">
+                No "Official" support for React
+              </li>
             </ol>
           </Fragment>
         </div>
@@ -31,13 +37,19 @@ export const HowToReveal = () => {
               <li className="fragment">Next.js 15 with App Router</li>
               <li className="fragment">Integrate Reveal API into react</li>
               <li className="fragment">
+                <strong className="text-green-400">NEW!</strong>{" "}
                 <pre className="inline text-orange-600 bg-gray-800 p-2 rounded-lg">
                   useSlides
                 </pre>{" "}
                 hook for slide state
               </li>
-              <li className="fragment">Fragment naming</li>
-              <li className="fragment">Tailwind Support</li>
+              <li className="fragment">
+                <strong className="text-green-400">NEW!</strong> Fragment naming
+              </li>
+              <li className="fragment">
+                <strong className="text-green-400">NEW!</strong> Tailwind
+                Support
+              </li>
             </ol>
           </Fragment>
           <Fragment className="mt-20">
@@ -48,6 +60,7 @@ export const HowToReveal = () => {
             <ol className="text-6xl [&>li]:py-2">
               <li>react-syntax-highlighter</li>
               <li>motion animations (framer-motion)</li>
+              <li className="fragment">Janky mess (sorry)</li>
             </ol>
           </Fragment>
         </div>

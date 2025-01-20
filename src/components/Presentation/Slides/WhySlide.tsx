@@ -18,9 +18,7 @@ export const WhySlide = () => {
       <div>
         <h1>Motivation</h1>
         <ol>
-          <li className="fragment">
-            Browsers significantly more powerful than Slides/Powerpoint
-          </li>
+          <li className="fragment">Browsers significantly more powerful</li>
           <li className="fragment">
             We already build out Front ends, why not re-use them?
           </li>

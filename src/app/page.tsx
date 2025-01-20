@@ -9,6 +9,7 @@ import { HowToUse } from "@/components/Presentation/Slides/HowToUse";
 import { IsometricIntroSlide } from "@/components/Presentation/Slides/IsometricIntroSlide";
 import { IsometricSlide } from "@/components/Presentation/Slides/IsometricSlide";
 import { MSWSlide } from "@/components/Presentation/Slides/MSWSlide";
+import { ThanksSlide } from "@/components/Presentation/Slides/ThanksSlide";
 import { TitleSlide } from "@/components/Presentation/Slides/TitleSlide";
 import { TransformationsSlide } from "@/components/Presentation/Slides/TransformationsSlide";
 import { WhySlide } from "@/components/Presentation/Slides/WhySlide";
@@ -35,6 +36,7 @@ export default function Home() {
         <BackendFrontendSlide />
         <MSWSlide />
         <HandlersAndReactSlide />
+        <ThanksSlide />
       </PresentationSlides>
     </main>
   );

@@ -4,15 +4,15 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import { Slide } from "@/components/Reveal/Slide";
-import { GoatFlipper } from "@/components/ui/GoatFlipper";
+import { Flipper } from "@/components/ui/Flipper";
 import { isometricCoordinate } from "@/utils";
 
 import { isoRotX, isoScale } from "./IsometricSlide";
 
-const grid = 200;
+const grid = 250;
 const GOATS = 10;
 
-function generateCombinations(num1: number, num2: number, N: number) {
+export function generateCombinations(num1: number, num2: number, N: number) {
   if (num1 < 0 || num1 > 9 || num2 < 0 || num2 > 9) {
     throw new Error("Both numbers must be between 0 and 9.");
   }
@@ -90,7 +90,12 @@ export const TitleSlide = () => {
                     }}
                     className="absolute"
                   >
-                    <GoatFlipper grid={grid} isCell={Array.isArray(isCell)} />
+                    <Flipper
+                      folder="goat"
+                      images={16}
+                      grid={grid}
+                      isCell={Array.isArray(isCell)}
+                    />
                   </motion.div>
                 );
               })}

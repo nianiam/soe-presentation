@@ -39,6 +39,13 @@ const variants = {
 
 const colors = ["bg-red-300", "bg-green-300", "bg-blue-300", "bg-purple-300"];
 
+const coordinates = {
+  coordinate1: [0, 0],
+  coordinate2: [0, 1],
+  coordinate3: [1, 1],
+  coordinate4: [1, 0],
+} as Record<string, [number, number]>;
+
 export const IsometricSlide = () => {
   const { x, fragment } = useSlides();
   const [grid, setGrid] = useState(200);
@@ -100,6 +107,13 @@ export const IsometricSlide = () => {
       return { left: xOffset, top: yOffset };
     },
     [grid, reference.x, reference.y],
+  );
+
+  const potentialCoordinate = fragment.name ?? "";
+  const coordinate = coordinates[potentialCoordinate];
+  const { top: coordinateTop, left: coordinateLeft } = isometricCoordinate(
+    coordinates[potentialCoordinate]?.[0],
+    coordinates[potentialCoordinate]?.[1],
   );
 
   return (
@@ -182,6 +196,15 @@ export const IsometricSlide = () => {
             )}
             {fragment.name?.includes("coordinate") && (
               <>
+                {coordinate !== undefined && (
+                  <motion.div
+                    className="absolute border"
+                    animate={{
+                      width: coordinateLeft,
+                      height: coordinateTop,
+                    }}
+                  />
+                )}
                 <motion.div
                   className="absolute rounded-full size-8 bg-red-500 z-30"
                   style={{ translateX: "-50%", translateY: "-50%" }}
@@ -193,16 +216,28 @@ export const IsometricSlide = () => {
                       opacity: 1,
                     },
                     coordinate1: {
-                      ...isometricCoordinate(0, 0),
+                      ...isometricCoordinate(
+                        coordinates.coordinate1[0],
+                        coordinates.coordinate1[1],
+                      ),
                     },
                     coordinate2: {
-                      ...isometricCoordinate(0, 1),
+                      ...isometricCoordinate(
+                        coordinates.coordinate2[0],
+                        coordinates.coordinate2[1],
+                      ),
                     },
                     coordinate3: {
-                      ...isometricCoordinate(1, 1),
+                      ...isometricCoordinate(
+                        coordinates.coordinate3[0],
+                        coordinates.coordinate3[1],
+                      ),
                     },
                     coordinate4: {
-                      ...isometricCoordinate(1, 0),
+                      ...isometricCoordinate(
+                        coordinates.coordinate4[0],
+                        coordinates.coordinate4[1],
+                      ),
                     },
                     coordinate5: {
                       ...isometricCoordinate(3, 1),
